@@ -4,3 +4,8 @@ export type Nearby = {
     location:string,
     distance:string
 }
+
+export type MediumCardType = {
+    img:string,
+    title:string
+}
