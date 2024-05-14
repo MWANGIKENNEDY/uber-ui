@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import Banner from "@/components/Banner";
+import NextTopLoader from "nextjs-toploader";
+import Footer from "@/components/Footer";
+
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,19 +21,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
       <head>
-      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
+        <link
+          rel="stylesheet"
+          href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+        />
       </head>
-   
-    
-      <body className={inter.className}>
-        <Header/>
 
-        <Banner/>
+      <body className={inter.className}>
+        <NextTopLoader
+          color="#2299DD"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={true}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #2299DD,0 0 5px #2299DD"
+        />
+        <Header />
+
         {children}
-        
-        </body>
+
+        <Footer />
+      </body>
     </html>
   );
 }
